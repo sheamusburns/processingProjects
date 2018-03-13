@@ -1,3 +1,5 @@
+import random as shuffle
+
 class Tile:
     def __init__(self, loc, h, w, d, angle, img_name):
         self.loc = loc
@@ -9,10 +11,8 @@ class Tile:
         self.angVel = random(1, 3)
         self.spinning = False
         self.show = False
-        
     def spin(self):
         self.spinning = True
-        
     def render(self):
         noStroke()
         translate(self.loc.x, self.loc.y, self.loc.z)
@@ -33,15 +33,24 @@ class Tile:
             if self.angle <= 180:
                 self.spinning = False
                 self.show = False
+boppers = []
+for i in range(0, 13):
+    boppers.append('jt'+str(i)+'.jpg')
+    boppers.append('jt'+str(i)+'.jpg')
+shuffle.shuffle(boppers)
+print(boppers)
 
 def setup():
-    global tiles
+    global tiles, boppers
     tiles = []
     initX = 50
     initY = 50
     size(500, 500, P3D)
     for i in range(1,26):
-        tiles.append(Tile(PVector(initX, initY, 0), 100, 100, 10, 3, 'jt.jpg'))
+        print(i)
+        print("length", len(boppers))
+        if i is not 13:
+            tiles.append(Tile(PVector(initX, initY, 0), 100, 100, 10, 3, boppers.pop()))
         if i % 5 == 0:
             initX = 50
             initY += 100
