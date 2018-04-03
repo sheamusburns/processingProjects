@@ -1,21 +1,24 @@
 import random as shuffle
 boppers = []
 turn = False
-numTilesX = 5
+numTilesX = 4
 numTilesY = 4
 tileW = 100
 tileH = 100
 score = 0
 barH = 50
-tileD = 100
-padding = 2
+tileD = 10
+padding = 30
+score = 0
 
 for i in range(0, numTilesX*numTilesY/2):
     print(i)
     boppers.append('jt'+str(i)+'.jpg')
     boppers.append('jt'+str(i)+'.jpg')
 shuffle.shuffle(boppers)
+print(boppers)
 # print(boppers)
+
 
 
 class Turn:
@@ -104,7 +107,7 @@ class Tile:
     def leave(self):
         if self.leaving == 1:
             if self.loc.z < self.d + 10:
-                self.loc.z += 2
+                self.loc.z -= 2
             else: self.leaving = 2
         if self.leaving == 2:
             if self.loc.y < height + tileH/2:
