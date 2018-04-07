@@ -1,4 +1,5 @@
 import random as shuffle
+
 boppers = []
 turn = False
 numTilesX = 4
@@ -15,11 +16,8 @@ for i in range(0, numTilesX*numTilesY/2):
     print(i)
     boppers.append('jt'+str(i)+'.jpg')
     boppers.append('jt'+str(i)+'.jpg')
+
 shuffle.shuffle(boppers)
-print(boppers)
-# print(boppers)
-
-
 
 class Turn:
     def __init__(self):
@@ -47,9 +45,6 @@ class Turn:
             self.first_pick.leaving = 1
             self.second_pick.leaving = 1
             score += 1
-            # boppers.remove(self.first_pick)
-            # boppers.remove(self.first_pick)
-            # boppers.remove(self.second_pick)
             self.reset()
         else:
             print('noooo')
@@ -125,8 +120,6 @@ def setup():
     size(tileW*numTilesX + padding*(numTilesX+1), tileH*numTilesY + barH + (numTilesY*padding)-1, P3D)
     textSize(40)
     for i in range(1,(numTilesX * numTilesY) + 1):
-        # print(i)
-        # print("length", len(boppers))
         tiles.append(Tile(PVector(initX, initY, 0), tileW, tileH, tileD, 3, boppers.pop()))
         if i % numTilesX == 0:
             initX = tileW/2 + padding
@@ -149,16 +142,16 @@ def mouseClicked():
                 t.active = True
             
 def draw():
-    # print(turn)
     global tiles
     background(120)
-    # directionalLight(300, 300, 300, 0, 0, -1)
-    # ambientLight(200, 102, 102)
-    # lightSpecular(204, 204, 204)
-    # lights()
+    directionalLight(300, 300, 300, 0, 0, -1)
+    ambientLight(200, 102, 102)
+    lightSpecular(204, 204, 204)
+    lights()
     for p in tiles:
         p.render()
-    
+
+    # working on score feature
     # translate(40, 80, 50)
     # fill(30)
     # text(str(score), 0, 0)
