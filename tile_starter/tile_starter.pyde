@@ -12,11 +12,10 @@ tileD = 10
 padding = 30
 score = 0
 
+#generating random queue of tiles with images
 for i in range(0, numTilesX*numTilesY/2):
-    print(i)
     boppers.append('jt'+str(i)+'.jpg')
     boppers.append('jt'+str(i)+'.jpg')
-
 shuffle.shuffle(boppers)
 
 class Turn:
