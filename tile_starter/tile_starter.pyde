@@ -1,3 +1,6 @@
+## This program runs in Python Mode of Processing (download at https://processing.org/download/)
+## The project folder can be cloned and the tile_starter project folder containing all the program assets can be opened and run by the program.
+
 import random as shuffle
 
 boppers = []
